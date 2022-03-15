@@ -35,9 +35,9 @@ function draw() {
     let pmy = pmouseY - height / 2;
 
     if (mouseIsPressed) {
-      let hu = noise(xoff) * 255;
+      let hu = map(sin(xoff), -1,1,0,360);
       xoff += 0.1;
-      stroke(hu, 255,255,255);
+      stroke(hu, 255,255,1);
       for (let i = 0; i < symmetry; i++) {
         rotate(angle);
         //let d = dist(mx, my, pmx, pmy);
