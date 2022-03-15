@@ -14,7 +14,7 @@ function setup() {
   clearButton = createButton('clear');
   clearButton.mousePressed(clearCanvas);
   slider = createSlider(1, 32, 4, 0.1);
-  //colorMode(HSB);
+  colorMode(HSB, 255, 255, 255);
 }
 
 function saveSnowflake() {
@@ -35,9 +35,9 @@ function draw() {
     let pmy = pmouseY - height / 2;
 
     if (mouseIsPressed) {
-      // let hu = map(sin(xoff), -1, 1, 0, 255);
-      xoff += 1;
-      stroke(255);
+      let hu = noise(xoff) * 255;
+      xoff += 0.1;
+      stroke(hu, 255,255,255);
       for (let i = 0; i < symmetry; i++) {
         rotate(angle);
         //let d = dist(mx, my, pmx, pmy);
